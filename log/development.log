@@ -836,3 +836,40 @@ Processing by ArtistsController#index as HTML
   [1m[35mArtist Load (0.2ms)[0m  SELECT "artists".* FROM "artists"
   Rendered artists/index.html.erb within layouts/application (4.8ms)
 Completed 200 OK in 181ms (Views: 174.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 98.196.52.170 at 2017-11-22 03:38:37 +0000
+Cannot render console from 98.196.52.170! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/artists/1/songs" for 98.196.52.170 at 2017-11-22 03:38:51 +0000
+Cannot render console from 98.196.52.170! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  Parameters: {"artist_id"=>"1"}
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE "songs"."artist_id" = ?  [["artist_id", 1]]
+  Rendered songs/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 56ms (Views: 18.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs/new" for 98.196.52.170 at 2017-11-22 03:38:53 +0000
+Cannot render console from 98.196.52.170! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#new as HTML
+  Rendered songs/_form.html.erb (16.5ms)
+  Rendered songs/new.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for 98.196.52.170 at 2017-11-22 03:39:27 +0000
+Cannot render console from 98.196.52.170! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iFhpViAEayoeiSfT1Bk0tmjdaaS3qwM7bOzQp233G2+B1reZjU61AKEISm6P9TXiQ2UypOKWy+tooqSX0sqBSQ==", "song"=>{"title"=>"amazing grace", "artist_name"=>"Lord Almighty"}, "commit"=>"Create Song"}
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."name" = ? LIMIT 1[0m  [["name", "Lord Almighty"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Lord Almighty"], ["created_at", "2017-11-22 03:39:27.846446"], ["updated_at", "2017-11-22 03:39:27.846446"]]
+  [1m[35m (6.8ms)[0m  commit transaction
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "amazing grace"], ["artist_id", 6], ["created_at", "2017-11-22 03:39:27.858392"], ["updated_at", "2017-11-22 03:39:27.858392"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.182.198:54536/songs/18
+Completed 302 Found in 23ms (ActiveRecord: 11.7ms)
